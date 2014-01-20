@@ -1,0 +1,31 @@
+#+begin_src
+(ns dow.web
+  (:require-macros [dogfort.middleware.routes-macros :refer [defroutes GET]]
+                   [hiccups.core :refer [html defhtml]])
+  (:require [dogfort.middleware.routes]
+            [dogfort.http :refer [run-http]]
+            [redlobster.promise :as p]
+            [dow.browser :refer [spawner]]
+            [hiccups.runtime :refer [escape-html]]))
+
+(defhtml ^:private vessel
+  ([x] [:span x])
+  ([x y] [:span x [:div y]]))
+
+(defhtml ^:private app-tmpl [app]
+  [:html [:head [:script ]]])
+
+(defhtml ^:private hello []
+  [:h1 "This is Dogooo"])
+
+(defn handler [request]
+  (p/promise {:status 200
+              :headers {:content-type "text/html"}
+              :body (hello)}))
+
+(defn launch-app []
+  (run-http handler {:port 4000})
+  (spawner "luakit" ["http://localhost:4000/"]))
+
+#_(js/setTimeout launch-app 1000)
+#+end_src

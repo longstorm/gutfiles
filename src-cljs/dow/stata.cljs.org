@@ -1,0 +1,1 @@
+:g/[dow.claude.child-process :refer [exec-file]]/d

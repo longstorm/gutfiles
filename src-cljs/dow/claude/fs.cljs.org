@@ -1,0 +1,21 @@
+diff --git a/src-cljs/dow/claude/fs.cljs b/src-cljs/dow/claude/fs.cljs
+index d944c08..a4d034a 100644
+--- a/src-cljs/dow/claude/fs.cljs
++++ b/src-cljs/dow/claude/fs.cljs
+@@ -13,6 +13,16 @@
+ (defn list-file-paths [path]
+   (map #(str path "/" %) (list-file-names path)))
+
++;;; GENERAL FILESYSTEM
++
++(defn ls-names [path]
++  (.readdirSync (Fs) path))
++
++(defn ls-paths [path]
++  (map #(str path "/" %) (list-file-names path)))
++
++;;; DIRECTORIES
++
+ (defn directory? [path]
+   (.isDirectory (.lstatSync (Fs) path)))
+ 
