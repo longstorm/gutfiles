@@ -1,0 +1,26 @@
+#+begin_src clojure
+(ns dow.seijure.macros)
+
+(defn ^:private keyword->upper-case-str [kw]
+  (subs (clojure.string/upper-case kw) 1))
+
+(defn ^:private convert-keyword-to-sql-data-type! [kw]
+  `(~aget Sequelize (~keyword->upper-case-str ~kw)))
+
+(defn ^:private process-model-props!
+  [kvals]
+  (letfn [convert-to-sql-data-type! [data]
+    (condp apply [data]
+      map? (->> data (into []) flatten process-model-props!)
+      keyword? (convert-keyword-to-sql-data-type! data)
+      data)]
+    (mapv #(%1 %2) (cycle [identity convert-to-sql-data-type!]) kvals)))
+
+(defn create-model
+  ([name db prop & props] (create-model name db (vec (cons prop props))))
+  ([name db props]
+     (.define db name (-> props process-model-props! hash-map clj->js))))
+
+(defmacro defmodel [name db & props]
+  `(def ~name (~create-model (str (quote ~name)) ~db ~@props)))
+#+end_src

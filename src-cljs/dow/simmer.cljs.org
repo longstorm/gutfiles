@@ -1,0 +1,36 @@
+#+begin_src clojure --gut-append
+(def country-core [:all-to-all-graph
+                   ["Deja Vu" :by "Crosby, Still, Nash & Young"]
+                   ["Harvest" :by "Neil Young"]
+                   ["American Beauty" :by "Grateful Dead"]])
+
+(def heavy-downers [:all-to-all-graph
+                    ["The Wish" :by "The Cure" :threshold 0.6]
+                    ["The Soft Bulletin" :by "The Flaming Lips" :threshold 0.5]
+                    ["OK Computer" :by "Radiohead" :threshold 0.7]
+                    ["The Downward Spiral" :by "Nine Inech Nails" :threshold 0.9]
+                    ["Violator" :by "Depeche Mode" :threshold 0.4]
+                    ["The Hush" :by "Texas" :threshold 0.5]])
+
+(def industrient [:all-to-all-graph
+                  ["The Age of Plastic" :by "The Buggles"]
+                  ["Duke" :by "Genesis"]
+                  ["Autobahn" :by "Kraftwerk"]
+                  ["Die Mensch-Maschine" :by "Kraftwerk"]
+                  ["Farmer in the City" :from "Tilt" :by "Scott Walker"]
+                  ["The Soft Bulletin" :by "The Flaming Lips"]
+                  ["Violator" :by "Depeche Mode"]
+                  ["Father and Son" :by "Cat Stevens"]
+                  ["Wild World" :by "Cat Stevens"]
+                  ["In My Room" :by "The Beach Boys"]
+                  ["Trucking" :by "Grateful Dead"]
+                  ["The House of Rising Sun" :by "The Animals"]
+                  ["The Last of the Steam Powered Trains" :by "The Kinks"]
+                  ["Baba Yetu" :by ""]])
+
+(def bass-liners [:all-to-all-graph
+                  ["Cut" :from "The Wish" :by "The Cure"]])
+
+(def high-highs [:all-to-all-graph
+                 ["The Chaffeur" :from "Rio" :by "Duran Duran"]])
+#+end_src

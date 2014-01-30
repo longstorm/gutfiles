@@ -1,0 +1,14 @@
+[[https://news.ycombinator.com/item?id=6946839][Show HN: time tracking in Emacs without Org-mode]]
+* parse special < and > symlinks e.g. "< clojure.testing"
+* match up projects to git folders thru dowrc git-dirs
+** parse up TODOs from source code files
+* implement "links" interface
+"links" are represented by a db field or a relation, or by
+a :PROPERTY: if persisting in an org file. It's fed by a full-text
+search's result pick, which is the unique string for the project to
+link, and which is then added to the db/PROPERTY field
+* create expanded list view for projects with a card-based ui
+* process dow goal timestamps to generate weekly/quarter plans
+[[http://orgmode.org/manual/Creating-timestamps.html][Creating timestamps]]
+[[http://orgmode.org/manual/Inserting-deadline_002fschedule.html#Inserting-deadline_002fschedule][Inserting deadlines or schedules]]
+[[https://github.com/KirinDave/clj-time][clj-time]]

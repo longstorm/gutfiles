@@ -18,4 +18,3 @@ index d944c08..a4d034a 100644
 +
  (defn directory? [path]
    (.isDirectory (.lstatSync (Fs) path)))
- 
