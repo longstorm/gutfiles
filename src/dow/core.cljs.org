@@ -1,0 +1,16 @@
+* BRANCH multi-line-dowrc-cmds
+(defn process-cmds
+  ([s] (process-cmds [] s 0))
+  ([lines s acc]
+     (js/setTimeout #(.log js/console (count lines)) 1000)
+     #_(js/setTimeout #(.log js/console s (clj->js lines)) 1000)
+     (if (< acc 10) #_(seq s)
+       (let [line (read-string s)
+             openings (->> line pr-str seq (filter #{")"}) count)]
+         (js/setTimeout #(.log js/console (index-of-while ")" s
+                                                          (fn [k i] <= i openings))) 1000)
+         (process-cmds (conj lines line)
+                        (subs s (inc (index-of-while ")" s
+                                                     #(<= %2 openings))))
+                        (inc acc)))
+       lines)))
