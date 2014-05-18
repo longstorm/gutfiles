@@ -1,1 +1,20 @@
 :g/[dow.claude.child-process :refer [exec-file]]/d
+
+stata should ultimately be about more than just keeping track of
+local changes across different work projects: it should be about
+keeping track and coordinating remotes and how up to date they
+currently are (also what branches etc they have) and this should apply
+to the .gut repo status as well.
+
+in this sense it should be a bit like what git-annex offers in terms
+of coordinating who has what, but for discrete git repos instead of
+big files (i.e. stata is not about coordinating which files each
+computer/"repository" has, but which git projects (repositories) each
+remote/computer/"repository" has, if that makes good sense.)
+
+i should be able to open git stata config and say "here's a computer
+of mine accessible over local network in this address, it's
+potentially a remote for all my git projects" and from then on git
+stata can help me see where (which of my computers) each of my
+projects have been copied to, and easily fetch them from there (since
+it already has the git remote addresses needed.)

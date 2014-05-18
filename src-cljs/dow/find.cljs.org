@@ -1,0 +1,3 @@
+the 'current buffers' listing (C-t C-t) shouldn't show gutfiles as
+individual entries, but rather show "find.cljs [+gut]" if its
+gutfile counterpart is also open in emacs/dow-session.

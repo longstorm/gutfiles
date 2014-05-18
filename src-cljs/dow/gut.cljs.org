@@ -1,0 +1,11 @@
+gut.el should be configurable to operate on git-mirror mode (this
+requires that the gutfiles are managed by a git repo)
+
+what that means is whenever gut.el is used to 'apply' some guts back
+to the file, gut.el can make sure the gut patch should be removed from
+the gutfile; and if the gutfile is then empty, delete it; and at once
+stage this change to the gutfile, and when the user commits under the
+original git repo, also commit on the gut git repo (this may also
+require a certain commit discipline, e.g. always creating a "wip:
+[future task's commit message]" commit and continuously
+extending/ammending to it while developing.)
