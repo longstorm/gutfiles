@@ -1,0 +1,4 @@
+* TODO add special syntax parsing before :min/:h etc
+:.. at the end means 'repeat till target-length'
+:x2 and other multiplier to mean repeat 2, 3 times etc
+* TODO add syntax to seq workflows e.g. :bout = 4 :pomodoro
