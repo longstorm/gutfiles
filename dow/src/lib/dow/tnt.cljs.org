@@ -1,0 +1,11 @@
+#+begin_src
+(ns dow.tnt
+  (:require [dow.claude.fs :refer [slurp]]
+            [dow.os.org-parser :refer [org-outline-nodes org-outline-empty
+                                       org-link org-link-p]]))
+
+(comment "will eventually want to extract code from here into agnostic
+         'outline' module")
+
+(defn task-count [] "task count:")
+#+end_src
