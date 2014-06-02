@@ -1,0 +1,78 @@
+* gut
+  
+Gut is a processing tool to help you produce better shit.
+
+It's especially geared for developers, since it integrates seamlessly
+with git on many levels, but the main idea of =gutfiles= is useful
+for any file-based work (such as writing what have you), and tends to
+benefit from a powerful, programmable text editor like Vim or Emacs.
+
+=Gutfiles= are a mirror file structure of your writing or coding
+project. They are containers for undigested material that you /could/
+put on a feature branch and let it sit, but would potentially cause
+CONFLICT later on. It's a brainstorming and workflow-aid tool, for all
+the stuff that's intrinsically tied to a file (or directory, or
+module, or to the whole project) but shouldn't be committed to the git
+history, at least not yet. Here's a sample of gutfiles for a Clojure
+project:
+
+#+begin_src
+- project.clj.org     => notes about the project as a whole
+- README.org.org      => draft of new inclusions to README
+- src/
+  - enlightened/
+    - main.cljs.org   => undigested changes to the main file
+    - widgets.org     => notes and ideas for the whole 'widgets' namespace
+    - widgets/
+      - menu.cljs.org => unprocessed ideas for the menu file
+  ...
+#+end_src
+
+Why =.org=, you ask? Now I'm just forcing my lispy ways down your
+throat.. Well, gutfiles need an extension on top of the mirrored
+files', because otherwise we'd get a name collision between the
+=widgets= gutfile and the =widgets= folder. Also you might think
+=README.org.org= looks weird, but since my original file is named
+=README.org=, I need that doubled-up extension.
+
+Now, the great advantage of org-mode files is that they're not only a
+super set of plain text (so you can just ignore org syntax when
+writing your gutfiles) but they're pleasantly readable even with heavy
+syntax, so if you come upon someone else's gutfile but you don't have
+Emacs (or the org-mode plugin for Vim), you won't have any problem
+understanding anything (except for the other person's unintelligible
+code and ramblings.)
+
+** rationale
+
+I created =gut= because I tend to be an all-around-the-place coder
+(and writer), and as my mind is ever churning out ideas about features
+completely unrelated to the one I'm working on, I used to dump those
+ideas (and mocks, and prototypes) into these "harmless untracked
+files" on my repo. Well, they have a way of piling up and making my
+git status ever more unsightly. Not to mention "untracked" does not
+sound like a reliable medium-term storage.
+
+Even worse is when I'd begin work on a feature, then decide I should
+change focus for a while. What do I do with that half-digested work?
+Shove it into the guts, that's my answer now.
+
+Other times I'd be in the middle of something else, when I'd be
+tempted and make /just this little fix/ that I'll commit later.
+Little dangling fixes get in the way of a clean history, and of clean
+tests. =Gut= wants to hold on to all the nasty subproducts of your
+work so your life can be cleaner. When you need to, flush it all down
+at once. And that's not just a fart-ass pun, it means =gutfiles= can
+also be annotated with a little syntax to commit all these little
+fixes as granunarly as you wish, at the touch of a button, when it
+comes to it (i.e. when you finish your big damned feature.)
+
+Think of this little syntax as lightweight git patches, ones that
+don't suddenly "fail to apply" just because.. you can't even tell why,
+can you? For vim aficionados, it supports legendary =g/re/p= commands:
+
+=:g/[clojure.string :as str]/d=
+
+If you have that line on a gutfile for your =core.clj= file, that's a
+lightweight patch that will delete the line that requires
+clojure.string, but only when your history is ready to receive it.
