@@ -1,0 +1,11 @@
+i want to be able to experiment with different speedworking splits
+(maybe short spans 3-4min all throughout could work better in
+seamlessly welding the two tracks together?) and measure it through
+number of commits over a week or two.
+
+number of commits, though not perfect, is a decent indicator of being
+focused, on top of my game and knowing what i'm doing, it's nice to
+think of it as 'unit of work' done, accomplished, finished.
+
+gotta do markov-chain like learning to optimize the work split for the
+user gradually. also a gui slider e.g. 70
