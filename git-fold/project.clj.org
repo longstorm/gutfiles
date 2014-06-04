@@ -1,0 +1,22 @@
+git fold is the successor to git stata
+
+as a standalone cli, can pull the git-dirs from git config, so that
+you can either pass it a single argument (e.g. ~/repos/*) or ommit
+that argument and have it pick from git config, where you can
+actually have multiple arguments (directory blobs.)
+
+it's fold as in reduce, you give it a group of repos and it aggregates
+them in someway:
+* git fold status *
+displays a 'short log' of each status
+* git fold fetch [origin] *
+gets the tip for each repo, and may display a status-like short log
+afterwards
+* git fold log *
+actually mingles all the logs together so that you can see a
+chronological list of activity across repos (very useful for an
+organization e.g. what longstorm wants to be)
+
+it should show a short/relative date and preferrably only the
+committer's first name, though it can go back and fix names for whom
+there needs to be a surname abbrev (e.g. Vic G) for disambiguation.
